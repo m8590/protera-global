@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protera Global - Home</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            transition: background-color 0.3s;
+        }
+        header {
+            background-color: #4B0082;
+            padding: 15px 0;
+            text-align: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('image/istockphoto-2160078318-1024x1024.jpg') no-repeat center center/cover;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .hero button {
+            background-color: #FFD700;
+            color: #4B0082;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .hero button:hover {
+            background-color: #FFA500;
+        }
+        .sections {
+            text-align: center;
+            padding: 50px 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .sections h2 {
+            color: #4B0082;
+        }
+        .sections p {
+            font-size: 18px;
+            color: #333;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Welcome to Protera Global</h1>
+        <p>Your trusted partner in petroleum and agricultural products.</p>
+        <button onclick="window.location.href='products.html'">Explore Products</button>
+    </section>
+    
+    <section class="sections" id="commitment">
+        <h2>Our Commitment</h2>
+        <p>Providing high-quality petroleum and agricultural products to meet your needs.</p>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll(".sections");
+            
+            function revealSections() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < window.innerHeight - 100) {
+                        section.style.opacity = "1";
+                        section.style.transform = "translateY(0)";
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", revealSections);
+            revealSections();
+        });
+    </script>
+</body>
+</html>
